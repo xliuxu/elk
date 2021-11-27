@@ -41,6 +41,7 @@ var (
 		"uint64":        _int64,
 		"float32":       _float,
 		"float64":       _double,
+		"xid.ID":        _string,
 	}
 )
 var rules = inflect.NewDefaultRuleset()
