@@ -96,6 +96,11 @@
                     msg := stripEntError(err)
                     l.Error(msg, zap.Error(err){{ range $.Logs }}, {{ . }}{{ end }})
                     BadRequest(w, msg)
+            {{- else if eq $err "constraint" }}
+            case ent.IsConstraintError(err):
+                    msg := stripEntError(err)
+                    l.Error(msg, zap.Error(err){{ range $.Logs }}, {{ . }}{{ end }})
+                    BadRequest(w, msg)
             {{- else if eq $err "privacy" }}
                 // Privacy case
             {{- end }}

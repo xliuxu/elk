@@ -34,7 +34,10 @@
             {{ end -}}
             e, err := b.Save(r.Context())
 
-            {{- template "helper/http/error-handling" dict "Default" (print "could not create " ($n.Name | kebab)) -}}
+            {{- template "helper/http/error-handling" dict
+                "Errors" (list "constraint")
+                "Default" (print "could not create " ($n.Name | kebab))
+            -}}
 
             // Store id of fresh entity to log errors for the reload.
             id := e.{{ $n.ID.StructField }}

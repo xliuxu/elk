@@ -41,7 +41,7 @@
             {{- $zapID := zapField $n.ID "id" }}
             {{-
                 template "helper/http/error-handling" dict
-                "Errors" (list "not-found" "not-singular")
+                "Errors" (list "not-found" "not-singular" "constraint")
                 "Logs" (list $zapID)
                 "Default" (print "could not update " $n.Name | kebab)
             -}}
